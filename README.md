@@ -4,6 +4,11 @@
 NMBsim is a MATLAB-based simulator developed from the study *"A Comprehensive Model of Neuromuscular Monitoring Measures During General Anesthesia."* 
 This model incorporates the effects of Non-depolarizing Neuromuscular Blockers (NDNBs) on neuromuscular transmission and predicts neuromuscular monitoring measures such as Train-of-Four Ratio (TOFR), Train-of-Four Count (TOFC), and Post-tetanic Count (PTC).
 
+<p align="center">
+  <img src="docs/images/monitoring_measures.png" alt="Monitoring Measures" width="60%">
+</p>
+
+
 This repository includes:
 - **MATLAB code**: Implementation of the neuromuscular transmission model
 - **.mat data**: Parameter datasets of 21 patients
