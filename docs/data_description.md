@@ -7,7 +7,6 @@ The clinical data were obtained at Kagawa University Hospital with approval of t
 - **Patient Information:** Age, weight, gender
 - **Observed Neuromuscular Monitoring Measures:** Train-of-Four Ratio (TOFR), Train-of-Four Count (TOFC), and Post-tetanic Count (PTC)
 - **Rocuronium Infusion Rates:** Administered dosage over time
-- **PK-PD Model Parameters:** Optimized parameters for pharmacokinetic and pharmacodynamic modeling
 - **Parameter Estimation Results:** Identified parameters based on clinical observations
 
 Each `.mat` file corresponds to an individual patient and contains all relevant data for reproducibility.
@@ -28,11 +27,10 @@ The table below lists the age, weight, and gender of the 21 patients included in
 
 The concentration-effect relationship was analyzed for each patient. 
 
-
 <p align="center">
-  <img src="images/patient_04.png" width="30%">
-  <img src="images/patient_04.png" width="30%">
-  <img src="images/patient_04.png" width="30%">
+  <img src="images/patient_04.jpg" width="30%">
+  <img src="images/patient_04.jpg" width="30%">
+  <img src="images/patient_04.jpg" width="30%">
 </p>
 
 <p align="center">
