@@ -27,28 +27,19 @@ The table below lists the age, weight, and gender of the 21 patients included in
 
 The concentration-effect relationship was analyzed for each patient. 
 
-<p align="center">
-  <img src="images/patient_04.jpg" width="30%">
-  <img src="images/patient_05.jpg" width="30%">
-  <img src="images/patient_06.jpg" width="30%">
-</p>
-<p align="center">
-  <b>Patient 04</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Patient 05</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Patient 06</b>
-</p>
 
-<p align="center">
-  <img src="docs/images/patient_01.png" width="30%">
-  <img src="docs/images/patient_05.png" width="30%">
-  <img src="docs/images/patient_06.png" width="30%">
-</p>
-<p align="center">
-  <b>Patient 01</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Patient 05</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Patient 06</b>
-</p>
-
+<table align="center">
+  <tr>
+    <td align="center"><img src="images/patient_04.jpg" width="30%"><br><b>Patient 01</b></td>
+    <td align="center"><img src="images/patient_04.jpg" width="30%"><br><b>Patient 02</b></td>
+    <td align="center"><img src="images/patient_04.jpg" width="30%"><br><b>Patient 03</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="images/patient_01.png" width="30%"><br><b>Patient 04</b></td>
+    <td align="center"><img src="images/patient_05.png" width="30%"><br><b>Patient 05</b></td>
+    <td align="center"><img src="images/patient_06.png" width="30%"><br><b>Patient 06</b></td>
+  </tr>
+</table>
 
 ## Notes
 - The `.mat` files in `data/` contain all relevant simulation data for reproducibility.
