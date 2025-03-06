@@ -11,7 +11,7 @@ This model incorporates the effects of Non-depolarizing Neuromuscular Blockers (
 
 This repository includes:
 - **MATLAB code**: Implementation of the neuromuscular transmission model 
-- **.mat data**: Parameter datasets of 21 patients 
+- **Patient data**: Datasets of 21 patients clinically obtained at Kagawa University Hospital 
 - **Documentation**: Model description, usage guide, and parameter identification results
 
 ## Installation
@@ -36,17 +36,18 @@ data = load('data/patient_01.mat');
 ```
 
 ### Complete simulation including PK model: 
-Execute the following command to 
+Execute the following command to run simulation for PKPD analysis:
 ```matlab
-run('src/pk_pd_simulation.m');
+run('src/pkpd_simulation.m');
 ```
 
+
 ## Data
-`.mat` files in the `data/` directory contain:
+Patient data is available in the `data` directory and contains:
 - **Patient Information:** Age, weight, gender
-- **Rocuronium infusion:** Time course of rocuronium infusion rate during operation 
+- **Rocuronium Infusion Data:** Time course of rocuronium infusion rate during the operation 
 - **Neuromuscular Monitoring Measures:** Clinically observed TOFR, TOFC, and PTC 
-- **PD Model Parameters: ** Optimized parameters for pharmacodynamic modeling
+- **PD Model Parameters:** Optimized parameters for pharmacodynamic modeling
 
 For more details, refer to [docs/data_description.md](docs/data_description.md).
 

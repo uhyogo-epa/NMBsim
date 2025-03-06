@@ -1,15 +1,16 @@
 # Data Description
 
 ## Overview
-This document describes the dataset included in the `data/` directory. 
-The dataset contains optimized parameter data for 21 patients who underwent general anesthesia with neuromuscular blockade. 
-The parameters were identified using clinical data from elective surgical procedures.
+This document describes the dataset included in the `data/` directory. The dataset contains optimized parameter data for 21 patients who underwent general anesthesia with neuromuscular blockade. The parameters were identified using clinical data from elective surgical procedures.
 
-
-Each `.mat` file corresponds to an individual patient and contains the following data:
+The clinical data were obtained at Kagawa University Hospital with approval of the institutional medical ethics committee (No: 2019-250). This dataset includes:
 - **Patient Information:** Age, weight, gender
+- **Observed Neuromuscular Monitoring Measures:** Train-of-Four Ratio (TOFR), Train-of-Four Count (TOFC), and Post-tetanic Count (PTC)
+- **Rocuronium Infusion Rates:** Administered dosage over time
 - **PK-PD Model Parameters:** Optimized parameters for pharmacokinetic and pharmacodynamic modeling
-- **Neuromuscular Monitoring Measures:** Train-of-Four Ratio (TOFR), Train-of-Four Count (TOFC), and Post-tetanic Count (PTC) simulations
+- **Parameter Estimation Results:** Identified parameters based on clinical observations
+
+Each `.mat` file corresponds to an individual patient and contains all relevant data for reproducibility.
 
 
 ## Patient Information
@@ -29,9 +30,9 @@ The concentration-effect relationship was analyzed for each patient.
 
 
 <p align="center">
-  <img src="docs/images/patient_04.png" width="30%">
-  <img src="docs/images/patient_04.png" width="30%">
-  <img src="docs/images/patient_04.png" width="30%">
+  <img src="images/patient_04.png" width="30%">
+  <img src="images/patient_04.png" width="30%">
+  <img src="images/patient_04.png" width="30%">
 </p>
 
 <p align="center">
