@@ -30,9 +30,9 @@ The concentration-effect relationship was analyzed for each patient.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="images/patient_04.jpg" width="30%"><br><b>Patient 01</b></td>
-    <td align="center"><img src="images/patient_04.jpg" width="30%"><br><b>Patient 02</b></td>
-    <td align="center"><img src="images/patient_04.jpg" width="30%"><br><b>Patient 03</b></td>
+    <td align="center"><img src="images/patient_04.jpg" width="95%"><br><b>Patient 01</b></td>
+    <td align="center"><img src="images/patient_04.jpg" width="95%"><br><b>Patient 02</b></td>
+    <td align="center"><img src="images/patient_04.jpg" width="95%"><br><b>Patient 03</b></td>
   </tr>
   <tr>
     <td align="center"><img src="images/patient_01.png" width="30%"><br><b>Patient 04</b></td>
