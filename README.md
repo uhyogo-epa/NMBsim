@@ -44,6 +44,7 @@ visualization(simulation_results);
 `.mat` files in the `data/` directory contain the optimized parameters for each patient. 
 For more details, refer to [docs/data_description.md](docs/data_description.md).
 
+
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
