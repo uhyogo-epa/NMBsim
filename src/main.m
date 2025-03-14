@@ -1,41 +1,44 @@
-model = "nigrovic";
+%%%%%%%%%%%%%%%%%%%%%%%%
+% PD model simulation
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Load patient data
+data = load('../data/patient_01.mat');
+patientParam = data.PatientParam;
+drugParam    = data.DrugParam;
+
+% PD model
+conc = (0:1/10:6) * 10^-6;
+[TOFR_mdl, TOFC_mdl, PTC_mdl] = pd_model(conc, drugParam, patientParam, 'nigrovic');
 
 
-load('../temp/patient_04.mat');
-
-
-C = 0:10*10^-6/100:10*10^-6;
-[TOFr_opt, TOFc_opt, PTC_opt] = pd_model(C,drugParam,param,model);
-
-fig = figure(i);
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Plot figure
+%%%%%%%%%%%%%%%%%%%%%%%%
+%TOFR
+clf;
 subplot(3,1,1);
-x = C;
-x1 = TOFr_f1(2,:);
-y1 = TOFr_opt(2,:);
 hold on
-plot(x*10^6,y1,'LineWidth',1)
-scatter(x1*10^6,TOFr_f1(3,:),'filled')
-legend('Calculation result', 'Measurement result');
-ylabel('TOFratio');
+plot(TOFR_mdl(1,:)*10^6, TOFR_mdl(2,:),'LineWidth',1) %Simulation        
+scatter(data.TOFR(3,:)*10^6, data.TOFR(2,:),'filled') %Monitoring
+legend('Simulation', 'Monitoring');
+ylabel('TOFR');
 xlim([0 6]);
 ylim([0 1]);
 
+% Plot TOFC
 subplot(3,1,2); 
-x2 = TOFc_f1(2,:);
-y2 = TOFc_opt(2,:);
 hold on
-plot(x*10^6,y2,'LineWidth',1)
-scatter(x2*10^6,TOFc_f1(3,:),'filled')
-ylabel('TOFcount');
+plot(TOFC_mdl(1,:)*10^6, TOFC_mdl(2,:),'LineWidth',1) %Simulation        
+scatter(data.TOFC(3,:)*10^6, data.TOFC(2,:),'filled') %Monitoring
+ylabel('TOFC');
 xlim([0 6]);
 ylim([0 4]);
 
+% Plot PTC
 subplot(3,1,3); 
-x3 = PTC_f1(2,:);
-y3 = PTC_opt(2,:);
 hold on
-plot(x*10^6,y3,'LineWidth',1)
-scatter(x3*10^6,PTC_f1(3,:),'filled')
+plot(PTC_mdl(1,:)*10^6, PTC_mdl(2,:),'LineWidth',1) %Simulation        
+scatter(data.PTC(3,:)*10^6, data.PTC(2,:),'filled') %Monitoring
 xlabel('Concentration [μM]');
 ylabel('PTC');
 xlim([0 6]);
