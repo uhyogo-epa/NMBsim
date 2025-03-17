@@ -6,14 +6,13 @@ This document describes the pharmacokinetic-pharmacodynamic (PK-PD) model used i
 ## Pharmacokinetic (PK) Model
 The pharmacokinetic model describes the absorption, distribution, metabolism, and elimination of rocuronium using a three-compartment model:
 
-\[
+$$
 \frac{dx(t)}{dt} = Ax(t) + Bu(t)
-\]
-
+$$
 where:
-- \( x(t) \) represents the drug concentrations in the central, shallow peripheral, and deep peripheral compartments.
-- \( A \) is a matrix of rate constants governing drug transfer between compartments.
-- \( B \) represents drug infusion input.
+- $ x(t) $ represents the drug concentrations in the central, shallow peripheral, and deep peripheral compartments.
+- $ A $ is a matrix of rate constants governing drug transfer between compartments.
+- $ B $ represents drug infusion input.
 
 The Magorian model was selected for PK parameterization based on its superior fit to Japanese patient data.
 
