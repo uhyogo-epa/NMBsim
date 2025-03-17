@@ -41,6 +41,7 @@ Execute the following command to run simulation for PKPD analysis:
 run('src/pkpd_simulation.m');
 ```
 
+For more details, refer to [docs/model_description.md](docs/model_description.md).
 
 ## Data
 Patient data is available in the `data` directory and contains:
