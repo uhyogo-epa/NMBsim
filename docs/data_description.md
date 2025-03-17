@@ -55,14 +55,14 @@ The concentration-effect relationship was analyzed for each patient.
     <td align="center"><img src="images/patient_15.jpg" width="95%"><br><b>Patient 15</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="images/patient_16.jpg" width="95%"><br><b>Patient 13</b></td>
-    <td align="center"><img src="images/patient_17.jpg" width="95%"><br><b>Patient 14</b></td>
-    <td align="center"><img src="images/patient_18.jpg" width="95%"><br><b>Patient 15</b></td>
+    <td align="center"><img src="images/patient_16.jpg" width="95%"><br><b>Patient 16</b></td>
+    <td align="center"><img src="images/patient_17.jpg" width="95%"><br><b>Patient 17</b></td>
+    <td align="center"><img src="images/patient_18.jpg" width="95%"><br><b>Patient 18</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="images/patient_19.jpg" width="95%"><br><b>Patient 13</b></td>
-    <td align="center"><img src="images/patient_20.jpg" width="95%"><br><b>Patient 14</b></td>
-    <td align="center"><img src="images/patient_21.jpg" width="95%"><br><b>Patient 15</b></td>
+    <td align="center"><img src="images/patient_19.jpg" width="95%"><br><b>Patient 19</b></td>
+    <td align="center"><img src="images/patient_20.jpg" width="95%"><br><b>Patient 20</b></td>
+    <td align="center"><img src="images/patient_21.jpg" width="95%"><br><b>Patient 21</b></td>
   </tr>
 </table>
 
@@ -70,4 +70,4 @@ The concentration-effect relationship was analyzed for each patient.
 - The `.mat` files in `data/` contain all relevant simulation data for reproducibility.
 - The pharmacodynamic parameters were estimated based on the observed neuromuscular monitoring measures.
 
-For more details on the model and methodology, refer to [docs/model_description.md](docs/model_description.md).
+For more details on the model and methodology, refer to [model_description.md](model_description.md).
