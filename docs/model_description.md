@@ -25,7 +25,7 @@ The PD model characterizes the effect of NDNBs at the neuromuscular junction by 
 2. **Post-synaptic Model**: Simulates the interaction of ACh and NDNB with acetylcholine receptors (AChRs), affecting muscle contraction strength.
 
 <p align="center">
-  <img src="docs/images/model_structure.png" alt="Model Structure" width="60%">
+  <img src="images/model_structure.png" alt="Model Structure" width="60%">
 </p>
 
 
@@ -37,6 +37,6 @@ The simulation framework consists of the following MATLAB scripts:
 - **`pkpd_simulation.m`**: Runs a full PK-PD simulation, integrating the above models.
 
 ## Validation
-The model was validated by comparing simulated TOFR, TOFC, and PTC with clinical observations. The estimated CE50 values fell within the range of published values for rocuronium, supporting the modelÅfs reliability. Future work includes extending the model to account for sugammadex reversal and real-time monitoring applications.
+The model was validated by comparing simulated TOFR, TOFC, and PTC with clinical observations. The estimated CE50 values fell within the range of published values for rocuronium, supporting the model¬Åfs reliability. Future work includes extending the model to account for sugammadex reversal and real-time monitoring applications.
 
-For dataset details, refer to [docs/data_description.md](docs/data_description.md).
+For dataset details, refer to [data_description.md](data_description.md).
