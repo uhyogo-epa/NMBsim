@@ -7,7 +7,7 @@ This document describes the pharmacokinetic-pharmacodynamic (PK-PD) model used i
 The pharmacokinetic model describes the absorption, distribution, metabolism, and elimination of rocuronium using a three-compartment model:
 
 <p align="center">
-  <img src="images/pk_model.png" alt="PK Model Equations" width="70%">
+  <img src="images/pk_model.png" alt="PK Model Equations" width="200">
 </p>
 
 where:
