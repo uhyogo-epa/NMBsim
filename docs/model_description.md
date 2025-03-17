@@ -6,13 +6,14 @@ This document describes the pharmacokinetic-pharmacodynamic (PK-PD) model used i
 ## Pharmacokinetic (PK) Model
 The pharmacokinetic model describes the absorption, distribution, metabolism, and elimination of rocuronium using a three-compartment model:
 
-$$
-\frac{dx(t)}{dt} = Ax(t) + Bu(t)
-$$
+<p align="center">
+  <img src="docs/images/pk_equation.png" alt="PK Model Equations" width="70%">
+</p>
+
 where:
-- $ x(t) $ represents the drug concentrations in the central, shallow peripheral, and deep peripheral compartments.
-- $ A $ is a matrix of rate constants governing drug transfer between compartments.
-- $ B $ represents drug infusion input.
+- x(t) represents the drug concentrations in the central, shallow peripheral, and deep peripheral compartments.
+- A  is a matrix of rate constants governing drug transfer between compartments.
+- B  represents drug infusion input.
 
 The Magorian model was selected for PK parameterization based on its superior fit to Japanese patient data.
 
@@ -36,6 +37,6 @@ The simulation framework consists of the following MATLAB scripts:
 - **`pkpd_simulation.m`**: Runs a full PK-PD simulation, integrating the above models.
 
 ## Validation
-The model was validated by comparing simulated TOFR, TOFC, and PTC with clinical observations. The estimated CE50 values fell within the range of published values for rocuronium, supporting the model¬Åfs reliability. Future work includes extending the model to account for sugammadex reversal and real-time monitoring applications.
+The model was validated by comparing simulated TOFR, TOFC, and PTC with clinical observations during onset and mantainance phases. The estimated CE50 values fell within the range of published values for rocuronium, supporting the modelÅfs reliability. Future work includes extending the model to account for sugammadex reversal and real-time monitoring applications.
 
 For dataset details, refer to [data_description.md](data_description.md).
