@@ -183,15 +183,15 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Postsynaptic model (Cyclic)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function twich = twich_data_cyclic(A0, D, drugParam, patientParam, PatientParam)
+function twich = twich_data_cyclic(A0, D, drugParam, patientParam)
  
-    %基準量の定義
+    % Base value for nondimensionalization
     R_base = 7.75*10^-5;
     T_base = 10^-3;
     ka_base = 1 / (R_base * T_base);
     kd_base = 1 / T_base;
-    
-    
+
+    % Nondimensional parameters
     Param.D_ = D / R_base;
     drugParam.kaA1_ = drugParam.kaA1 / ka_base;
     drugParam.kaA2_ = drugParam.kaA2 / ka_base;
@@ -205,7 +205,7 @@ function twich = twich_data_cyclic(A0, D, drugParam, patientParam, PatientParam)
     drugParam.kaA2_ast_ = drugParam.kaA2_ast / ka_base;
     drugParam.kdA1_ast_ = drugParam.kdA1_ast / kd_base;
     drugParam.kdA2_ast_ = drugParam.kdA2_ast / kd_base;
-    drugParam.kd_ = drugParam.kd / kd_base;
+    drugParam.kd_ = drugParam.khd / kd_base;
     drugParam.kd1_ = drugParam.kd1 / kd_base;
     drugParam.kd2_ = drugParam.kd2 / kd_base;
     drugParam.ko_ = drugParam.ko / kd_base;
@@ -214,17 +214,12 @@ function twich = twich_data_cyclic(A0, D, drugParam, patientParam, PatientParam)
     drugParam.KD2_ = drugParam.KD2 / R_base;
     drugParam.KA1_ = drugParam.KA1 / R_base;
     drugParam.KA2_ = drugParam.KA2 / R_base;
-    
     patientParam.Rtotal_ = patientParam.Rtotal / R_base;
-    
     A0_ = A0 / R_base;
     
-    
+    % Calculation    
     sz = length(A0);
     twich = zeros(1,sz);
-    
-    
-    
     for i = 1:sz
     
         D_ = Param.D_;
@@ -232,28 +227,68 @@ function twich = twich_data_cyclic(A0, D, drugParam, patientParam, PatientParam)
         KD2_ = drugParam.KD2_;
         KA1_ = drugParam.KA1_;
         KA2_ = drugParam.KA2_;
-        del = (D_*KA1_+KD1_*KA1_)*(D_*KA2_+KD2_*KA2_);
-    
-    
+        del = (D_*KA1_+KD1_*KA1_)*(D_*KA2_+KD2_*KA2_);  
         DRD0 = D_^2*KA1_*KA2_/del;
         DRO0 = D_*KD2_*KA1_*KA2_/del;
         ORD0 = D_*KD1_*KA1_*KA2_/del;
     
         [~,y] = ode45(@(t,y) equation_cyclic(y, D, drugParam, patientParam),[0 1], ...
             [A0_(i);zeros(4,1);DRD0;zeros(4,1);DRO0;ORD0;0]);
-    
-    
-        rA = PatientParam.rA;
-        R50 = PatientParam.R50;
-    
+       
         Rpeak = max(y(:,2)+y(:,3)+y(:,4)) * R_base;
-    
-    
-        % disp(max(y(:,1)));
+        rA  = patientParam.rA;
+        R50 = patientParam.R50;
         twich(1,i) = Rpeak^rA / (Rpeak^rA + (R50)^rA);
-    
-    
     end
-
 end
 
+function dydt = equation_cyclic(y, D, drugParam, patientParam)
+
+   A = y(1);
+   ARA_ = y(2);
+   ARO_ = y(3);
+   ORA_ = y(4);
+   ARA = y(5);
+   DRD = y(6);
+   ARD = y(7);
+   DRA = y(8);
+   ARO = y(9);
+   ORA = y(10);
+   DRO = y(11);
+   ORD = y(12);
+   RD = y(13);   
+   kaA1 = drugParam.kaA1_;
+   kaA2 = drugParam.kaA2_;
+   kaD1 = drugParam.kaD1_;
+   kaD2 = drugParam.kaD2_;
+   kdA1 = drugParam.kdA1_;
+   kdA2 = drugParam.kdA2_;
+   kdD1 = drugParam.kdD1_;
+   kdD2 = drugParam.kdD2_;
+   kaA1_ = drugParam.kaA1_ast_;
+   kaA2_ = drugParam.kaA2_ast_;
+   kdA1_ = drugParam.kdA1_ast_;
+   kdA2_ = drugParam.kdA2_ast_;
+   kd = drugParam.kd_;
+   kd1 = drugParam.kd1_;
+   kd2 = drugParam.kd2_;
+   ko = drugParam.ko_;
+   kc = drugParam.kc_;
+   Rtotal = patientParam.Rtotal_;   
+   ORO = Rtotal-ARA_-ARO_-ORA_-ARA-DRD-ARD-DRA-ARO-ORA-DRO-ORD-RD;
+   dAdt = -kd*A+(kdA1_+kdA2_)*ARA_-kaA1_*ORA_*A-kaA2_*ARO_*A+kdA1*(ARA+ARD+ARO)-kaA1*A*(ORA+ORD+ORO)+kdA2*(ARA+DRA+ORA)-kaA2*A*(ARO+DRO+ORO);
+   dARA_dt = ko*ARA-(kdA1_+kdA2_)*ARA_+kaA1_*ORA_*A+kaA2_*ARO_*A-kd1*ARA_+kd2*RD;
+   dARO_dt = -kc*ARO_+kdA2_*ARA_-kaA2_*ARO_*A;
+   dORA_dt = -kc*ORA_+kdA1_*ARA_-kaA1_*ORA_*A;
+   dARAdt = -ko*ARA+kaA1*ORA*A-kdA1*ARA+kaA2*ARO*A-kdA2*ARA;
+   dDRDdt = kaD1*ORD*D-kdD1*DRD+kaD2*DRO*D-kdD2*DRD;
+   dARDdt = kaA1*ORD*A-kdA1*ARD+kaD2*ARO*D-kdD2*ARD;
+   dDRAdt = kaD1*ORA*D-kdD1*DRA+kaA2*DRO*A-kdA1*DRA;
+   dAROdt = kaA1*ORO*A-kdA1*ARO+kdA2*ARA-kaA2*ARO*A+kdD2*ARD-kaD2*ARO*D+kc*ARO_;
+   dORAdt = kaA2*ORO*A-kdA2*ORA+kdA1*ARA-kaA1*ORA*A+kdD1*DRA-kaD1*ORA*D+kc*ORA_;
+   dDROdt = kaD1*ORO*D-kdD1*DRO+kdD2*DRD-kaD2*DRO*D+kdA2*DRA-kaA2*DRO*A;
+   dORDdt = kaD2*ORO*D-kdD2*ORD+kdD1*DRD-kaD1*ORD*D+kdA1*ARD-kaA1*ORD*A;
+   dRDdt = kd1*ARA_-kd2*RD;
+   dydt =[dAdt;dARA_dt;dARO_dt;dORA_dt;dARAdt;dDRDdt;dARDdt;dDRAdt;dAROdt;dORAdt;dDROdt;dORDdt;dRDdt];
+   
+end

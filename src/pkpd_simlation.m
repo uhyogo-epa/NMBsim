@@ -12,7 +12,7 @@ conc = pk_magorian(time, rate, patientParam);
 
 % PD model
 sample = 1:100:length(time);
-[TOFR_mdl, TOFC_mdl, PTC_mdl] = pd_model(conc(sample), data.DrugParam, patientParam, 'nigrovic');
+[TOFR_mdl, TOFC_mdl, PTC_mdl] = pd_model(conc(sample), data.DrugParam, patientParam, 'cyclic');
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -43,7 +43,7 @@ hold on
 scatter(time(sample), TOFC_mdl(2,:),'LineWidth',1)  %Simulation        
 scatter(data.TOFC(1,:),data.TOFC(2,:),'filled') %Monitoring
 ylabel('TOFC');
-%xlim([0 6]);
+%xlim([0 10000]);
 ylim([0 4]);
 
 % PTC
