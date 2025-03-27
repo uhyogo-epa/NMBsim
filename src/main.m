@@ -48,7 +48,8 @@ for i = 1:1
     xlim([0 8]);
     ylim([0 15]);
     set(ylab3, 'Position', [pos1(1), pos3(2), pos3(3)]) % Align Y-axis label
-    
+    clear ylab1 ylab2 ylab3 pos1 pos2 pos3
+
     %saveas(gcf, sprintf('../docs/images/patient_%02d.png', i))
 
 end
