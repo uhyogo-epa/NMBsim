@@ -20,7 +20,7 @@ for i = 1:1
     
     % TOFR
     nexttile;
-    hold on
+    hold on; box on;
     plot(TOFR_mdl(1,:)*1e6, TOFR_mdl(2,:), 'LineWidth', 1); % Simulation
     scatter(data.TOFR(3,:)*1e6, data.TOFR(2,:), 'filled');  % Monitoring
     ylab1 = ylabel('TOFR'); pos1 = get(ylab1, 'Position');
@@ -30,7 +30,7 @@ for i = 1:1
     
     % TOFC
     nexttile;
-    hold on
+    hold on; box on;
     plot(TOFC_mdl(1,:)*1e6, TOFC_mdl(2,:), 'LineWidth', 1);
     scatter(data.TOFC(3,:)*1e6, data.TOFC(2,:), 'filled');
     ylab2 = ylabel('TOFC'); pos2 = get(ylab2, 'Position');
@@ -40,7 +40,7 @@ for i = 1:1
     
     % PTC
     nexttile;
-    hold on
+    hold on; box on;
     plot(PTC_mdl(1,:)*1e6, PTC_mdl(2,:), 'LineWidth', 1);
     scatter(data.PTC(3,:)*1e6, data.PTC(2,:), 'filled');
     ylab3 = ylabel('PTC'); pos3 = get(ylab3, 'Position');
@@ -51,5 +51,5 @@ for i = 1:1
     clear ylab1 ylab2 ylab3 pos1 pos2 pos3
 
     %saveas(gcf, sprintf('../docs/images/patient_%02d.png', i))
-
+    %saveas(gcf, sprintf('../docs/images/patient_%02d.eps', i), 'epsc')
 end
