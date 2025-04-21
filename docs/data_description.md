@@ -17,7 +17,7 @@ The table below lists the age, weight, and gender of the 21 patients included in
 
 | Patient ID | Age (years) | Weight (kg) | Gender |
 |------------|------------|------------|--------|
-| 01         | 47         | 53.0       | F      |
+| 01         | 47         | 53.9       | F      |
 | 02         | 64         | 71.0       | F      |
 | 03         | 78         | 60.0       | M      |
 | 04         | 52         | 70.0       | M      |
