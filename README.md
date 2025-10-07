@@ -11,7 +11,7 @@ This model incorporates the effects of Non-depolarizing Neuromuscular Blockers (
 
 This repository includes:
 - **MATLAB code**: Implementation of the neuromuscular transmission model 
-- **Patient data**: Datasets of 21 patients clinically obtained at Kagawa University Hospital 
+- **Patient data**: Datasets of 21 patients clinically obtained at Kagawa University Hospital with approval of the institutional medical ethics committee(No: 2021-139 and 2025-136)
 - **Documentation**: Model description, usage guide, and parameter identification results
 
 ## Installation

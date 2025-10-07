@@ -3,7 +3,7 @@
 ## Overview
 This document describes the dataset included in the `data/` directory. The dataset contains optimized parameter data for 21 patients who underwent general anesthesia with neuromuscular blockade. The parameters were identified using clinical data from elective surgical procedures.
 
-The clinical data were obtained at Kagawa University Hospital with approval of the institutional medical ethics committee. This dataset includes:
+The clinical data were obtained at Kagawa University Hospital with approval of the institutional medical ethics committee(No: 2021-139 and 2025-136). This dataset includes:
 - **Patient Information:** Age, weight, gender
 - **Observed Neuromuscular Monitoring Measures:** Train-of-Four Ratio (TOFR), Train-of-Four Count (TOFC), and Post-tetanic Count (PTC)
 - **Rocuronium Infusion Rates:** Administered dosage over time
